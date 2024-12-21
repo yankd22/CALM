@@ -196,6 +196,8 @@ for step in range(len(exam_datasets)):
         for epoch in range(args.num_train_epochs):
             args.log.info(f'Current task: {dataset_current}, Epoch: {epoch}')
             mask_model.train(seen_dataset, seen_dataname)
+            if (epoch+1)%10 == 0:
+                mask_model.eval_dataset(test_seen_dataloader, seen_dataname, loaded=False)
 
         with torch.no_grad():
             param = mask_model.get_params(loaded=False)
