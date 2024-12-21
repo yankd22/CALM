@@ -28,7 +28,7 @@ class DTD:
         if credible_samples is not None:
             updated_samples = [(path, credible_samples[i]) for i, (path, label) in enumerate(self.test_dataset.samples) if i in credible_samples]
             self.test_dataset.samples = updated_samples
-            self.test_dataset.imgs = updated_samples  # 同步更新 imgs，确保 len(test_dataset) 返回正确的值
+            self.test_dataset.imgs = updated_samples
 
 
         self.test_loader = torch.utils.data.DataLoader(

@@ -37,11 +37,8 @@ class SVHN:
         )
 
         if credible_samples is not None:
-            # 只保留 credible_samples 中的样本
             updated_data = [self.test_dataset.data[i] for i in credible_samples]
-            updated_labels = [credible_samples[i] for i in credible_samples]  # 用新的标签替换原来的标签
-
-            # 更新 test_dataset 的 data 和 labels
+            updated_labels = [credible_samples[i] for i in credible_samples]
             self.test_dataset.data = np.array(updated_data)
             self.test_dataset.labels = np.array(updated_labels)
 

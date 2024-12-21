@@ -152,8 +152,7 @@ class GTSRB:
         
         if credible_samples is not None:
             updated_samples = [(path, credible_samples[i]) for i, (path, target) in enumerate(self.test_dataset._samples) if i in credible_samples]
-            
-            # 更新 test_dataset 的 _samples
+
             self.test_dataset._samples = updated_samples
 
         self.test_loader = torch.utils.data.DataLoader(
